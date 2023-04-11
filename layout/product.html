@@ -1,0 +1,26 @@
+<div class="container-fluid m-3">
+    <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" ng-model="searchText">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</div>
+<div class="section section-home-featues py-4">
+    <div class="container">
+        <h2 class="section-title text-center
+             mt-0">SẢN PHẨM NỔI BẬT
+        </h2>
+        <div class="row"> 
+            <div ng-repeat="product in products | filter:searchText | orderBy:prop" class="card col-md-3 m-3" style="width: 18rem;">
+                <a href="#!/layout/info_product"><img ng-src="{{product.img}}" class="card-img-top" alt="{{product.name}}"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <span class="card-text" style="font-size: 18px; color: #e91e63;">{{product.price | currency : "" : 2}}đ</span>
+                    
+                </div>
+                <div class="card-footer text-center">
+                    <a href="" class="btn btn-primary" ng-click="addToCart(product)">Mua Ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  

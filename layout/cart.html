@@ -1,0 +1,423 @@
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCart">
+  <i class="bi bi-cart"></i>
+</button>
+
+
+<div class="modal fade" id="exampleModalCart" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">GIỎ HÀNG</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <div class="main mb-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-9 table-responsive">
+                <table class="table table-shopping text-center">
+                  <thead>
+                    <tr>
+                      <th class="product-picture" width="10%">Hình ảnh</th>
+                      <th class="product" width="45%">Tên sản phẩm</th>
+                      <th class="unit-price" width="12%">Giá bán</th>
+                      <th class="quantify" width="18%">Số lượng</th>
+                      <th class="subtotal" width="20%">Tổng Tiền</th>
+                      <th class="remove-form-cart" width="5%">Xóa</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="item in cart">
+                      <td class="product-picture">
+                        <img ng-src="{{item.img}}" style="width: 80px; height: 80px;" alt="{{item.img}}">
+                      </td>
+                      <td class="product">
+                        <b>
+                          {{item.name}}
+                        </b>
+                      </td>
+                      <td class="unit-price">
+                        {{item.price}}
+                      </td>
+                      <td class="quantify">
+                        <div class="bmd-form-group is-filled">
+                          <div class="input-group">
+                            <input class="text-center" type="number" ng-model="item.quantity"
+                              ng-change="updateTotalPrice(item)" min="1">
+                          </div>
+                        </div>
+                      </td>
+                      <td class="subtotal">
+                        <span class="product-subtotal">{{item.totalPrice}}đ</span>
+                      </td>
+                      <td class="remove-form-cart">
+                        <button ng-click="removeFromCart(item)" class="btn btn-link text-dark"><i
+                            class="bi bi-trash3"></i></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-3">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card card-form-horizontal mt-0">
+                      <div class="card-body">
+                        <h4 class="card-title my-3">Mã giảm giá</h4>
+                        <div class="row">
+                          <div class="col-7 col-sm-12">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <button class="btn btn-link text-dark"><i class="bi bi-envelope-fill"></i></button>
+                              </div>
+                              <input type="text" class="form-control" placeholder="Nhập mã giảm gia của bạn tại đây">
+                            </div>
+                          </div>
+                          <div class="col-5 col-sm-12 text-center mt-3">
+                            <button class="btn btn-round btn-outline-secondary rounded-pill" type="submit">Áp dụng
+                              mã</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-7">Tổng tạm tính: </div>
+                      <div class="col-5 pl-0 text-right">{{totalCartPrice}}đ</div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-7">Phí vận chuyển: </div>
+                      <div class="col-5 text-right">Được tính trong khi thanh toán</div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-7">Thuế: </div>
+                      <div class="col-5 pl-0 text-right">0đ</div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-7">Tổng thanh toán: </div>
+                      <div class="col-5 text-right">Được tính trong khi thanh toán</div>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                      <button class="btn btn-round btn-outline-primary rounded-pill">THANH
+                        TOÁN</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col-12">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-round btn-info rounded-pill">Tiếp tục mua sắm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="modal fade" id="exampleModalToggleCart" aria-hidden="true" aria-labelledby="exampleModalToggleCartLabel"
+  tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleCartLabel">GIỎ HÀNG</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-9 table-responsive">
+              <table class="table table-shopping text-center">
+                <thead>
+                  <tr>
+                    <th class="product-picture" width="10%">Hình ảnh</th>
+                    <th class="product" width="45%">Tên sản phẩm</th>
+                    <th class="unit-price" width="12%">Giá bán</th>
+                    <th class="quantify" width="18%">Số lượng</th>
+                    <th class="subtotal" width="20%">Tổng Tiền</th>
+                    <th class="remove-form-cart" width="5%">Xóa</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="item in cart">
+                    <td class="product-picture">
+                      <img ng-src="{{item.img}}" style="width: 80px; height: 80px;" alt="{{item.img}}">
+                    </td>
+                    <td class="product">
+                      <b>
+                        {{item.name}}
+                      </b>
+                    </td>
+                    <td class="unit-price">
+                      {{item.price | currency : "" : 2}}đ
+                    </td>
+                    <td class="quantify">
+                      <div class="bmd-form-group is-filled">
+                        <div class="input-group">
+                          <input class="text-center" type="number" ng-model="item.quantity"
+                            ng-change="updateTotalPrice(item)" min="1">
+                        </div>
+                      </div>
+                    </td>
+                    <td class="subtotal">
+                      <span style="text-align: center;">{{item.totalPrice | currency : "" : 2}}</span>
+                    </td>
+                    <td class="remove-form-cart">
+                      <button ng-click="removeFromCart(item)" class="btn btn-link text-dark"><i
+                          class="bi bi-trash3"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-3">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card card-form-horizontal mt-0">
+                    <div class="card-body">
+                      <h4 class="card-title my-3">Mã giảm giá</h4>
+                      <div class="row">
+                        <div class="col-7 col-sm-12">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-link text-dark"><i class="bi bi-envelope-fill"></i></button>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Nhập mã giảm gia của bạn tại đây">
+                          </div>
+                        </div>
+                        <div class="col-5 col-sm-12 text-center mt-3">
+                          <button class="btn btn-round btn-outline-secondary rounded-pill" type="submit">Áp dụng
+                            mã</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-7">Tổng tạm tính: </div>
+                    <div class="col-5 pl-0 text-right">{{totalCartPrice | currency : "" : 2}}đ</div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-7">Phí vận chuyển: </div>
+                    <div class="col-5 text-right">Được tính trong khi thanh toán</div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-7">Thuế: </div>
+                    <div class="col-5 pl-0 text-right">0đ</div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-7">Tổng thanh toán: </div>
+                    <div class="col-5 text-right">Được tính trong khi thanh toán</div>
+                  </div>
+                  <hr>
+                  <div class="text-center">
+                      <button class="btn btn-primary" data-bs-target="#exampleModalToggleCart2" data-bs-toggle="modal">THANH TOÁN</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalToggleCart2" aria-hidden="true" aria-labelledby="exampleModalToggleCartLabel2"
+  tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleCartLabel2">THANH TOÁN</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <h1>THANH TOÁN</h1>
+          <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Giỏ hàng của bạn</span>
+                <span class="badge badge-secondary badge-pill">3</span>
+              </h4>
+              <ul class="list-group mb-3" >
+                <li class="list-group-item d-flex justify-content-between lh-condensed"ng-repeat="item in cart">
+                  <div>
+                    <h6 class="my-0">{{item.name}}</h6>
+                    <small class="text-muted">Giá: {{item.price | currency : "" : 2}}đ</small>
+                    <small class="text-muted">Số Lượng:{{item.quantity}}</small>
+                  </div>
+                  <span class="text-muted">Tổng: {{item.totalPrice | currency : "" : 2}}đ</span>
+                </li>
+              </ul>
+              <form class="card p-2">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Promo code">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary">Redeem</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-8 order-md-1">
+              <form class="needs-validation" novalidate>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="firstName">Họ</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                    <div class="invalid-feedback">
+                      Họ không được để trống
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="lastName">Tên</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                    <div class="invalid-feedback">
+                      Tên không được để trống
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                  <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                  <div class="invalid-feedback">
+                    Vui lòng nhập địa chỉ email hợp lệ để cập nhật thông tin vận chuyển.
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-5 mb-3">
+                    <label for="country">Thành Phố</label>
+                    <select class="form-select d-block w-100" id="country" required>
+                      <option value="">Chọn...</option>
+                      <option>Đồng Nai</option>
+                      <option>TP Hồ Chí Minh</option>
+                      <option>Hà Nội</option>
+                      <option>Cần Thơ</option>
+                      <option>Đà Nẵng</option>
+                      <option>Nha Trang</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Vui lòng chọn một quốc gia hợp lệ.
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="state">Quận/Huyện</label>
+                    <select class="form-select d-block w-100" id="state" required>
+                      <option value="">Choose...</option>
+                      <option>Tân Phú</option>
+                      <option>Định Quán</option>
+                      <option>Thống Nhât</option>
+                      <option>Long Khánh</option>
+                      <option>TP Biên Hòa</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Vui lòng chọn một quận, huyện hợp lệ.
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                    <div class="invalid-feedback">
+                      Vui lòng nhập địa chỉ vận chuyển của bạn.
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label for="zip">Zip</label>
+                    <input type="text" class="form-control" id="zip" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Yêu Cầu Mã Zip
+                    </div>
+                  </div>
+                </div>
+                <hr class="mb-4">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="same-address">
+                  <label class="custom-control-label" for="same-address">Địa chỉ giao hàng giống với địa chỉ thanh toán của tôi</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="save-info">
+                  <label class="custom-control-label" for="save-info">Lưu thông tin này cho lần sau</label>
+                </div>
+                <hr class="mb-4">
+
+                <h4 class="mb-3">Thanh Toán</h4>
+
+                <div class="d-block my-3">
+                  <div class="custom-control custom-radio">
+                    <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                    <label class="custom-control-label" for="credit">Thẻ tín dụng</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                    <label class="custom-control-label" for="debit">Thẻ ghi nợ</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                    <label class="custom-control-label" for="paypal">PayPal</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="cc-name">Tên trên thẻ</label>
+                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                    <small class="text-muted">Tên đầy đủ như hiển thị trên thẻ</small>
+                    <div class="invalid-feedback">
+                      Tên trên thẻ là bắt buộc.
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="cc-number">Số trên thẻ</label>
+                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Số trên thẻ là bắt buộc.
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3 mb-3">
+                    <label for="cc-expiration">Hết hạn</label>
+                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Ngày hết hạn là bắt buộc
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="cc-cvv">CVV</label>
+                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Yêu cầu mã bảo mật
+                    </div>
+                  </div>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="alert('Đặt hàng thành công!!!'); window.location.href = '/index.html';">Đặt hàng</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggleCart" data-bs-toggle="modal">GIỎ HÀNG</button>
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-outline-danger" data-bs-toggle="modal" href="#exampleModalToggleCart" role="button"><i class="bi bi-cart"></i></a>

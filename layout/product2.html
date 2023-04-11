@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/icons/bootstrap-icons.css">
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <input type="text" ng-model="searchText" placeholder="Search...">
+    <div class="section section-home-featues py-4">
+        <div class="container">
+            <h2 class="section-title text-center">
+                SẢN PHẨM NỔI BẬT
+            </h2>
+            <div class="row">
+                <div ng-repeat="product in products | filter:searchText" class="card col-md-3 m-3"
+                    style="width: 18rem;">
+                    <img ng-src="{{product.img}}" class="card-img-top" alt="{{product.name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <p class="card-text">{{product.price}}</p>
+                        <a href="" class="btn btn-primary" ng-click="addToCart(product)">Thêm vào giỏ hàng</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <h2>Giỏ hàng</h2>
+                                <div class="row">
+                                    <div ng-repeat="item in cart" class="card col-md-3 m-3" style="width: 18rem;">
+                                        <img ng-src="{{item.img}}" class="card-img-top" alt="{{item.name}}">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{item.name}}</h5>
+                                            <p class="card-text">{{item.price}}</p>
+                                            <input type="number" ng-model="item.quantity"
+                                                ng-change="updateTotalPrice(item)" min="1">
+                                            <p>{{item.totalPrice}}</p>
+                                            <a href="" class="btn btn-danger" ng-click="removeFromCart(item)">Xóa</a>
+                                        </div>
+                                    </div>
+                                    <p>Tổng tiền: {{totalCartPrice}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Giỏ Hàng</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <h2>Giỏ hàng</h2>
+                    <div class="row">
+                        <div ng-repeat="item in cart" class="card col-md-3 m-3" style="width: 18rem;">
+                            <img ng-src="{{item.img}}" class="card-img-top" alt="{{item.name}}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{item.name}}</h5>
+                                <p class="card-text">{{item.price}}</p>
+                                <input type="number" ng-model="item.quantity"
+                                    ng-change="updateTotalPrice(item)" min="1">
+                                <p>{{item.totalPrice}}</p>
+                                <a href="" class="btn btn-danger" ng-click="removeFromCart(item)">Xóa</a>
+                            </div>
+                        </div>
+                        <p>Tổng tiền: {{totalCartPrice}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Giỏ Hàng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Thanh Toán</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Giỏ Hàng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Thanh Toán</a>
+
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-route.min.js"></script>
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function ($scope, $http) {
+            $http.get('/data/products.json').then(function (response) {
+                $scope.products = response.data;
+            });
+
+            $scope.cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // tính tổng giá tiền của một sản phẩm
+            function calculateTotalPrice(item) {
+                item.totalPrice = item.price * item.quantity;
+            }
+
+            // tính tổng giá tiền của toàn bộ giỏ hàng
+            function calculateTotalCartPrice() {
+                $scope.totalCartPrice = 0;
+                for (var i = 0; i < $scope.cart.length; i++) {
+                    $scope.totalCartPrice += $scope.cart[i].totalPrice;
+                }
+            }
+
+            $scope.addToCart = function (product) {
+                var index = -1;
+                for (var i = 0; i < $scope.cart.length; i++) {
+                    if ($scope.cart[i].id === product.id) {
+                        index = i;
+                        break;
+                    }
+                }
+                if (index === -1) {
+                    var item = {
+                        id: product.id,
+                        img: product.img,
+                        name: product.name,
+                        price: product.price,
+                        quantity: 1
+                    };
+                    $scope.cart.push(item);
+                } else {
+                    $scope.cart[index].quantity++;
+                }
+                calculateTotalPrice(item);
+                calculateTotalCartPrice();
+                localStorage.setItem('cart', JSON.stringify($scope.cart));
+            };
+
+
+
+
+            $scope.removeFromCart = function (product) {
+                var index = $scope.cart.indexOf(product);
+                if (index > -1) {
+                    $scope.cart.splice(index, 1);
+                }
+                calculateTotalCartPrice();
+                localStorage.setItem('cart', JSON.stringify($scope.cart));
+            };
+
+            $scope.updateTotalPrice = function (item) {
+                calculateTotalPrice(item);
+                calculateTotalCartPrice();
+                localStorage.setItem('cart', JSON.stringify($scope.cart));
+            };
+
+            calculateTotalCartPrice();
+        });
+
+        window.addEventListener('beforeunload', function () {
+            localStorage.setItem('cart', JSON.stringify($scope.cart));
+        });
+    </script>
+</body>
+
+</html>

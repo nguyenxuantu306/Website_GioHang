@@ -1,0 +1,241 @@
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">ĐĂNG NHẬP</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="main">
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-md-10 ms-auto me-auto">
+                                <div class="card card-signup">
+                                    <h1 class="h2 card-title text-center">Chào Mừng</h1>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6 ms-auto">
+                                                <div class="info info-horizontal">
+                                                    <div class="description">
+                                                        <h4 class="info-title"><i class="bi bi-person-lines-fill"></i>
+                                                            Nếu chưa có tài
+                                                            khoản</h4>
+                                                        <p class="description">
+                                                            Bằng cách tạo một tài khoản trên trang web của chúng tôi,
+                                                            bạn sẽ có thể mua
+                                                            sắm nhanh hơn, được cập nhật về trạng thái đơn hàng và theo
+                                                            dõi các đơn đặt
+                                                            hàng bạn đã thực hiện trước đây.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center">
+                                                    <button class="btn btn-primary"
+                                                        data-bs-target="#exampleModalToggle2"
+                                                        data-bs-toggle="modal">Đăng Ký</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 me-auto">
+                                                <form method="post" autocomplete="off" novalidate="novalidate">
+                                                    <h5 class="card-title">THÔNG TIN ĐĂNG NHẬP</h5>
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                                                    <i class="bi bi-person-bounding-box"></i>
+                                                                </span>
+                                                            </div>
+                                                            <input type="text" class="form-control" autofocus
+                                                                placeholder="Tên đăng nhập hoặc email..." id="Username"
+                                                                name="Username">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                                                    <i class="bi bi-file-lock2"></i>
+                                                                </span>
+                                                            </div>
+                                                            <input type="text" class="form-control" autofocus
+                                                                placeholder="Mật Khẩu..." id="Username" name="Username">
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3 form-check">
+                                                        <input type="checkbox" class="form-check-input"
+                                                            id="exampleCheck1">
+                                                        <label class="form-check-label" for="exampleCheck1">Ghi nhớ mật
+                                                            khẩu</label>
+                                                        <span class="forgot-password">
+                                                            <a href="#" class="text-dark">Quên mật khẩu</a>
+                                                        </span>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <button id="clearBtn"
+                                                            onclick="alert('Bạn đã Đăng nhập thành công!!! Vui lòng nhấn nút Đăng nhập để quay lại trang đăng nhập')"
+                                                            type="submit" class="btn btn-primary btn-round">ĐĂNG
+                                                            NHẬP</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Đăng ký</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 ms-auto me-auto">
+                                <div class="card card-signup">
+                                    <h1 class="h2 card-title text-center">ĐĂNG KÝ</h1>
+                                    <div class="page-body">
+                                        <form method="post" autocomplete="off" class="container"
+                                            novalidate="novalidate">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h4 class="card-title text-center forn-weight-normal">THÔNG TIN CÁ
+                                                        NHÂN CỦA BẠN</h4>
+                                                </div>
+                                                <div class="col-12">x
+                                                    <div id="gender" class="row">
+                                                        <div class="col-3"></div>
+                                                        <div class="col-3 form-check">
+                                                            <label class="form-check-label">
+                                                                <input type="radio" class="form-check-input" value="M"
+                                                                    id="gender-male" name="Gender">
+                                                                Nam
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-3 form-check">
+                                                            <label class="form-check-label">
+                                                                <input type="radio" class="form-check-input" value="F"
+                                                                    id="gender-female" name="Gender">
+                                                                Nữ
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-3"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                                                    <i class="bi bi-file-lock2"></i>
+                                                                </span>
+                                                            </div>
+                                                            <input type="text" class="form-control" autofocus
+                                                                placeholder="Họ..." id="lastname" name="Lastname">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                                                    <i class="bi bi-file-lock2"></i>
+                                                                </span>
+                                                            </div>
+                                                            <input type="text" class="form-control" autofocus
+                                                                placeholder="Tên..." id="Fisrtname" name="Firstname">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                                                    <i class="bi bi-file-lock2"></i>
+                                                                </span>
+                                                            </div>
+                                                            <input type="text" class="form-control" autofocus
+                                                                placeholder="Email..." id="Email" name="Email">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                                                    <i class="bi bi-file-lock2"></i>
+                                                                </span>
+                                                            </div>
+                                                            <input type="text" class="form-control" autofocus
+                                                                placeholder="Tên Đăng Nhập..." id="Username"
+                                                                name="Username">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                                                    <i class="bi bi-file-lock2"></i>
+                                                                </span>
+                                                            </div>
+                                                            <input type="text" class="form-control" autofocus
+                                                                placeholder="Mật Khẩu..." id="Password" name="Password">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">
+                                                                    <i class="bi bi-file-lock2"></i>
+                                                                </span>
+                                                            </div>
+                                                            <input type="text" class="form-control" autofocus
+                                                                placeholder="Xác Nhận Mật Khẩu..." id="ConfirmPassword"
+                                                                name="ConfirmPassword">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button type="submit"
+                                                            class="btn btn-outline-danger btn-round m-2" 
+                                                            onclick="alert('Bạn đã đăng ký thành công!!! Vui lòng nhấn nút Đăng nhập để quay lại trang đăng nhập'); window.location.href = '/index.html';">ĐĂNG
+                                                            KÝ</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Đăng
+                    nhập</button>
+            </div>
+        </div>
+    </div>
+</div>
+<a class="btn btn-outline-danger" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><i
+        class="bi bi-person-circle"></i></a>

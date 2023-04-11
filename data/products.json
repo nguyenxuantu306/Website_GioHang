@@ -1,0 +1,63 @@
+[
+      {
+        "id": 1,
+        "img": "/img/info-sp.png",
+        "name": "[ Tặng 1 ví cao cấp ] Set 6 Son thỏi M.O.I Sparkling Matte The Stars Collection",
+        "price": 2299000
+      },
+      {
+        "id": 2,
+        "img": "/img/info-sp2.png",
+        "name": "[ Tặng 1 Ví Ngắn] Set 2 Son thỏi M.O.I Sparkling Matte The Stars Collection - Màu Tự Chọn",
+        "price": 798000
+      },
+      {
+        "id": 3,
+        "img": "/img/info-sp3.png",
+        "name": "Son thỏi M.O.I Sparkling Matte The Stars Collection No.3 To The Moon - Hồng Mật",
+        "price": 399000
+      },
+      {
+        "id": 4,
+        "img": "/img/info-sp4.png",
+        "name": "Son thỏi M.O.I Sparkling Matte The Stars Collection No.4 Starry Sky - Hồng Gỗ",
+        "price": 499000
+      },
+      {
+        "id": 5,
+        "img": "/img/info-sp5.png",
+        "name": "Son thỏi M.O.I Sparkling Matte The Stars Collection No.5 Moon Light - Đỏ Nhung",
+        "price": 599000
+      },
+      {
+        "id": 6,
+        "img": "/img/info-sp6.png",
+        "name": "Son thỏi M.O.I Sparkling Matte The Stars Collection No.1 Starlight - Cam Tây",
+        "price": 699000
+      },
+      {
+        "id": 7,
+        "img": "/img/info-sp7.png",
+        "name": "Son thỏi M.O.I Sparkling Matte The Stars Collection No.2 Dark Night - Cam Caramel",
+        "price": 7799000
+      },
+      {
+        "id": 8,
+        "img": "/img/info-sp8.png",
+        "name": "Son Thỏi Love MOI by Thùy Tiên No 04 - Màu Đỏ Cherry",
+        "price": 8990000
+      },
+      {
+        "id": 9,
+        "img": "/img/info-sp9.png",
+        "name": "Son Thỏi Love MOI by Thùy Tiên No 03 - Màu Đỏ Cam",
+        "price": 9999000
+      },
+      {
+        "id": 10,
+        "img": "/img/info-sp10.png",
+        "name": "Son Thỏi Love MOI by Thùy Tiên No 02 - Màu Đỏ Cam Đất",
+        "price": 15999000
+      }
+    ]
+  
